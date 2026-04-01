@@ -1,19 +1,23 @@
 #include <ncurses.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "game.h"
+#include "snake.h"
+
+Point snake[MAX_SNAKE_SIZE];
+int   snake_len;
+Direction dir, next_dir;
+Point food;
+int   score, high_score;
+bool  running;
 
 
 int main(void){
-    initscr();
-    noecho();
-    curs_set(FALSE);
+  
 
     printw("Snake game starting");
     refresh();   
     getch();   
 
 
-    endwin();    // ending ncurses mode
     return 0;
 }
