@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ncurses.h>
+#include "snake.h"
+
+
 
 void init_game(){
     initscr();
@@ -13,5 +16,6 @@ void end_game(){
 }
 
 void placeFood(){
-    
+    food.x = rand() % BoardWidth;
+    food.y = rand() % BoardHeight;
 }
