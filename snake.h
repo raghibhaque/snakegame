@@ -1,6 +1,6 @@
 
 #ifndef SNAKE_H
-#define snake
+#define SNAKE_H
 #include <stdbool.h>
 
 
@@ -13,7 +13,7 @@ typedef struct Point
 {
     int x;
     int y;
-};
+} Point;
 
 
 typedef enum {
