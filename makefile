@@ -1,22 +1,22 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -lncurses
+CFLAGS = -Wall -Wextra -Iinclude -lncurses
 TARGET = snake
 
-SRCS = main.c game.c input.c render.c
+SRCS = src/main.c src/game.c src/input.c src/render.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-    $(CC) -o $@ $^ $(CFLAGS)
+	$(CC) -o $@ $^ $(CFLAGS)
 
 %.o: %.c
-    $(CC) -c $< $(CFLAGS)
+	$(CC) -c $< -Iinclude -o $@
 
 clean:
-    rm -f $(OBJS) $(TARGET)
+	rm -f $(OBJS) $(TARGET)
 
 run: $(TARGET)
-    ./$(TARGET)
+	./$(TARGET)
 
 .PHONY: all clean run

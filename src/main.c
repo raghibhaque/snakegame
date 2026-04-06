@@ -1,7 +1,7 @@
 #include <ncurses.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "snake.h"
+#include "../include/snake.h"
 
 Point snake[MAX_SNAKE_SIZE];
 int   snake_len;

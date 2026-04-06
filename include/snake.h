@@ -26,6 +26,5 @@ extern Direction dir, next_dir;
 extern Point food;
 extern int   score, high_score;
 extern bool  running;
-extern int score = 0;
 
 #endif
