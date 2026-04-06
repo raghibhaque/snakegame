@@ -11,6 +11,18 @@ int   score, high_score;
 bool  running;
 
 
+void addScore(int points){
+    score += points;
+    if(score > high_score){
+        high_score = score;
+    }
+
+}
+
+void resetScore(){
+    score = 0;
+}
+
 int main(void){
   
 
