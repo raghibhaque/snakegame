@@ -23,13 +23,33 @@ void resetScore(){
     score = 0;
 }
 
+void saveHighScore(){
+    FILE *file = fopen("highscore.txt", "w");
+    if(file){
+        fprintf(file, "%d", high_score);
+        fclose(file);
+    }
+}
+
+
+void loadHighScore(){
+    FILE *file = fopen("highscore.txt", "r");
+    if(file){
+        fscanf(file, "%d", &high_score);
+        fclose(file);
+    } else {
+        high_score = 0;
+    }
+}
+
 int main(void){
-  
+
+    loadHighScore();
 
     printw("Snake game starting");
     refresh();   
     getch();   
 
-
+    saveHighScore();
     return 0;
 }
