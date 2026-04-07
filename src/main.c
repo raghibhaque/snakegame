@@ -9,10 +9,12 @@ Direction dir, next_dir;
 Point food;
 int   score, high_score;
 bool  running;
+int points = 0;
+int *ptr = &points;
 
 
-void addScore(int points){
-    score += points;
+void addScore(int *ptr){
+    score += *ptr;
     if(score > high_score){
         high_score = score;
     }
