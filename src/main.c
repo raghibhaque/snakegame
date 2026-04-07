@@ -45,12 +45,14 @@ void loadHighScore(){
 }
 
 int main(void){
-
+    init_game();
     printw("Snake game starting");
     
     dir = DIR_RIGHT;
     next_dir = DIR_RIGHT;
     snake_len = 5;
+    running = true;
+    
     for(int i = 0; i < snake_len; i++){
         snake[i].x = 5 - i;
         snake[i].y = 5;
@@ -68,6 +70,17 @@ int main(void){
     food.y = yFood;
 
     placeFood(xFood, yFood);
+
+
+    
+
+
+    while(running){
+        handle_input();
+        update();
+        draw();
+        usleep(150000); 
+    }
 
 
     saveHighScore();
