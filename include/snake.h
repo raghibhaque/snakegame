@@ -27,4 +27,16 @@ extern Point food;
 extern int   score, high_score;
 extern bool  running;
 
+
+void init_game();
+void end_game();
+void placeFood(int x, int y);
+void handle_input();
+void update();
+void draw();
+void addScore(int *ptr);
+void resetScore();
+void saveHighScore();
+void loadHighScore();
+
 #endif

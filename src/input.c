@@ -4,8 +4,8 @@
 #include "snake.h"
 
 void handle_input(){
-    int dir = getch();
-    switch (dir)
+    int ch = getch();
+    switch (ch)
     {
     case 'w':
         next_dir = DIR_UP;
@@ -31,5 +31,5 @@ void handle_input(){
 
     if(next_dir != dir){
         dir = next_dir;
-    }
+    }    
 }

@@ -8,6 +8,8 @@
 void init_game(){
     initscr();
     noecho();
+    keypad(stdscr, TRUE);
+    nodelay(stdscr, TRUE);
     curs_set(FALSE);
 }
 
@@ -15,7 +17,30 @@ void end_game(){
     endwin();
 }
 
-void placeFood(){
-    food.x = rand() % BoardWidth;
-    food.y = rand() % BoardHeight;
+void placeFood(int x, int y){
+    food.x = x;
+    food.y = y;
+}
+
+void update(){
+    Point new_Head = snake[0];
+    switch (dir)
+    {
+    case DIR_UP:
+        new_Head.y--;
+        break;
+    case DIR_DOWN:
+        new_Head.y++;
+        break;
+    case DIR_LEFT:
+        new_Head.x--;
+        break;
+    case DIR_RIGHT:
+        new_Head.x++;
+        break; 
+    default:
+        break;  
+    }
+
+
 }

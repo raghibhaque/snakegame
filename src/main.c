@@ -46,12 +46,31 @@ void loadHighScore(){
 
 int main(void){
 
+    printw("Snake game starting");
+    
+    dir = DIR_RIGHT;
+    next_dir = DIR_RIGHT;
+    snake_len = 5;
+    for(int i = 0; i < snake_len; i++){
+        snake[i].x = 5 - i;
+        snake[i].y = 5;
+    }
+
     loadHighScore();
 
-    printw("Snake game starting");
     refresh();   
     getch();   
 
+
+    int xFood = rand() % BoardWidth;
+    int yFood = rand() % BoardHeight;
+    food.x = xFood;
+    food.y = yFood;
+
+    placeFood(xFood, yFood);
+
+
     saveHighScore();
+    end_game();
     return 0;
 }
