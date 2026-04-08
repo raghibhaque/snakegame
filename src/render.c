@@ -27,3 +27,12 @@ void drawBoard(){
         mvaddch(y, BoardWidth - 1, '#');
     }
 }
+
+void gameOverScreen(){
+    nodelay(stdscr, FALSE);
+    clear();
+    mvprintw(0, 0, "Game Over! Your score: %d. Press any key to exit.", score);
+    refresh();
+    getch();
+    nodelay(stdscr, TRUE);
+}
