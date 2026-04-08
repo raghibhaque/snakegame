@@ -44,6 +44,18 @@ void loadHighScore(){
     }
 }
 
+void init_game(){
+    initscr();
+    noecho();
+    keypad(stdscr, TRUE);
+    nodelay(stdscr, TRUE);
+    curs_set(FALSE);
+}
+
+void end_game(){
+    endwin();
+}
+
 int main(void){
     init_game();
     printw("Snake game starting");
@@ -80,6 +92,8 @@ int main(void){
     while(running){
         handle_input();
         update();
+        isOnSnake();
+        isOnWall();
         draw();
         usleep(150000); 
     }

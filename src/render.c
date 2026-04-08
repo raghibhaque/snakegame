@@ -6,6 +6,8 @@
 void draw(){
     clear();
 
+    drawBoard();
+
     mvaddch(food.y, food.x, 'F');
 
     for(int i = 0; i < snake_len; i++){
@@ -13,4 +15,15 @@ void draw(){
     }
     
     refresh();
+}
+
+void drawBoard(){
+    for(int x = 0; x < BoardWidth; x++){
+        mvaddch(0, x, '#');
+        mvaddch(BoardHeight - 1, x, '#');
+    }
+    for(int y = 0; y < BoardHeight; y++){
+        mvaddch(y, 0, '#');
+        mvaddch(y, BoardWidth - 1, '#');
+    }
 }

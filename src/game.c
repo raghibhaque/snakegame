@@ -5,17 +5,6 @@
 
 Point newHead;
 
-void init_game(){
-    initscr();
-    noecho();
-    keypad(stdscr, TRUE);
-    nodelay(stdscr, TRUE);
-    curs_set(FALSE);
-}
-
-void end_game(){
-    endwin();
-}
 
 void placeFood(int x, int y){
     food.x = x;
@@ -42,7 +31,7 @@ void update(){
     }
 }
 
-    void isOnSnake(Point newHead){ // self collision check
+void isOnSnake(Point newHead){ // self collision check
         for(int i = 0; i < snake_len; i++){
             if(snake[i].x == newHead.x && snake[i].y == newHead.y){
                 running = false;
@@ -50,3 +39,11 @@ void update(){
             }
         }
     }
+
+void isOnWall(Point newHead){
+    if(newHead.x < 0 || newHead.x >= BoardWidth || newHead.y < 0 || newHead.y >= BoardHeight){
+        running = false;
+        printf(BoardHeight + 1, 0, "Game Over! You hit the wall.");
+        refresh();
+    }
+}
