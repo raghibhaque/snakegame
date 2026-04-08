@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ncurses.h>
+#include <time.h>
 #include "snake.h"
 
 Point newHead;
@@ -38,9 +39,11 @@ void update(){
     }
     snake[0] = newHead;
 
-       if(snake[0].x == food.x && snake[0].y == food.y){
+    if(snake[0].x == food.x && snake[0].y == food.y){
         addScore(ptr);
         snake_len++;
+        food.x = rand() % BoardWidth;
+        food.y = rand() % BoardHeight;
     }
 }
 

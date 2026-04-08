@@ -1,6 +1,7 @@
 #include <ncurses.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 #include "../include/snake.h"
 
 Point snake[MAX_SNAKE_SIZE];
@@ -57,6 +58,7 @@ void end_game(){
 }
 
 int main(void){
+    srand(time(NULL));  // Seed random number generator
     init_game();
     printw("Snake game starting");
     
