@@ -11,6 +11,7 @@ int   score, high_score;
 bool  running;
 int points = 0;
 int *ptr = &points;
+extern Point newHead;
 
 
 void addScore(int *ptr){
@@ -92,8 +93,8 @@ int main(void){
     while(running){
         handle_input();
         update();
-        isOnSnake();
-        isOnWall();
+        isOnSnake(newHead);
+        isOnWall(newHead);
         draw();
         usleep(150000); 
     }

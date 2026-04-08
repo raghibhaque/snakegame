@@ -26,6 +26,7 @@ extern Direction dir, next_dir;
 extern Point food;
 extern int   score, high_score;
 extern bool  running;
+extern Point newHead;
 
 
 void init_game();
@@ -38,5 +39,7 @@ void addScore(int *ptr);
 void resetScore();
 void saveHighScore();
 void loadHighScore();
+void drawBoard();
+void gameOverScreen();
 
 #endif

@@ -12,6 +12,7 @@ void placeFood(int x, int y){
 }
 
 void update(){
+    newHead = snake[0];
     switch (dir)
     {
     case DIR_UP:
@@ -29,6 +30,11 @@ void update(){
     default:
         break;  
     }
+    
+    for(int i = snake_len - 1; i > 0; i--){
+        snake[i] = snake[i - 1];
+    }
+    snake[0] = newHead;
 }
 
 void isOnSnake(Point newHead){ // self collision check
@@ -43,7 +49,7 @@ void isOnSnake(Point newHead){ // self collision check
 void isOnWall(Point newHead){
     if(newHead.x < 0 || newHead.x >= BoardWidth || newHead.y < 0 || newHead.y >= BoardHeight){
         running = false;
-        printf(BoardHeight + 1, 0, "Game Over! You hit the wall.");
+        mvprintw(BoardHeight + 1, 0, "Game Over! You hit the wall.");
         refresh();
     }
 }
