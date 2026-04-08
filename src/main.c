@@ -68,6 +68,8 @@ int main(void){
     int yFood = rand() % BoardHeight;
     food.x = xFood;
     food.y = yFood;
+    int xFood2 = rand() % BoardWidth;
+    int yFood2 = rand() % BoardHeight;
 
     placeFood(xFood, yFood);
 
@@ -80,6 +82,12 @@ int main(void){
         update();
         draw();
         usleep(150000); 
+    }
+
+    if(score > high_score){
+        high_score = score;
+        saveHighScore();
+        placeFood(xFood2, yFood2);
     }
 
 

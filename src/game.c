@@ -3,7 +3,7 @@
 #include <ncurses.h>
 #include "snake.h"
 
-
+Point newHead;
 
 void init_game(){
     initscr();
@@ -23,24 +23,30 @@ void placeFood(int x, int y){
 }
 
 void update(){
-    Point new_Head = snake[0];
     switch (dir)
     {
     case DIR_UP:
-        new_Head.y--;
+        newHead.y--;
         break;
     case DIR_DOWN:
-        new_Head.y++;
+        newHead.y++;
         break;
     case DIR_LEFT:
-        new_Head.x--;
+        newHead.x--;
         break;
     case DIR_RIGHT:
-        new_Head.x++;
+        newHead.x++;
         break; 
     default:
         break;  
     }
-
-
 }
+
+    void isOnSnake(Point newHead){ // self collision check
+        for(int i = 0; i < snake_len; i++){
+            if(snake[i].x == newHead.x && snake[i].y == newHead.y){
+                running = false;
+                return;
+            }
+        }
+    }
