@@ -4,6 +4,8 @@
 #include "snake.h"
 
 Point newHead;
+int points = 0;
+int *ptr = &points;
 
 
 void placeFood(int x, int y){
@@ -35,10 +37,15 @@ void update(){
         snake[i] = snake[i - 1];
     }
     snake[0] = newHead;
+
+       if(snake[0].x == food.x && snake[0].y == food.y){
+        addScore(ptr);
+        snake_len++;
+    }
 }
 
 void isOnSnake(Point newHead){ // self collision check
-        for(int i = 0; i < snake_len; i++){
+        for(int i = 1; i < snake_len; i++){
             if(snake[i].x == newHead.x && snake[i].y == newHead.y){
                 running = false;
                 return;

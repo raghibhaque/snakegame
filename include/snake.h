@@ -27,6 +27,7 @@ extern Point food;
 extern int   score, high_score;
 extern bool  running;
 extern Point newHead;
+extern int *ptr;
 
 
 void init_game();

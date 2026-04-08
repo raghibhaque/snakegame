@@ -9,8 +9,7 @@ Direction dir, next_dir;
 Point food;
 int   score, high_score;
 bool  running;
-int points = 0;
-int *ptr = &points;
+extern int *ptr;
 extern Point newHead;
 
 
@@ -87,11 +86,9 @@ int main(void){
     placeFood(xFood, yFood);
 
 
-    
-
 
     while(running){
-        handle_input();
+        handle_input(); 
         update();
         isOnSnake(newHead);
         isOnWall(newHead);
