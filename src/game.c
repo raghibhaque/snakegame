@@ -14,6 +14,13 @@ void placeFood(int x, int y){
     food.y = y;
 }
 
+void placeMultipleFood(int count){
+    for(int i = 0; i < count; i++){
+        food.x = rand() % BoardWidth;
+        food.y = rand() % BoardHeight;
+    }
+}
+
 void update(){
     newHead = snake[0];
     switch (dir)

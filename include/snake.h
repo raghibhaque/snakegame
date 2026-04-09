@@ -28,6 +28,7 @@ extern int   score, high_score;
 extern bool  running;
 extern Point newHead;
 extern int *ptr;
+extern int foodArray[MAX_FOOD][6];
 
 
 void init_game();
@@ -42,5 +43,7 @@ void saveHighScore();
 void loadHighScore();
 void drawBoard();
 void gameOverScreen();
-
+void placeMultipleFood(int count);
+void isOnSnake(Point newHead);
+void isOnWall(Point newHead);
 #endif

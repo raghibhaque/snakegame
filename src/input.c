@@ -24,6 +24,10 @@ void handle_input(){
         running = false;
         break;
 
+    case 'r':
+    placeMultipleFood(3);
+        break;
+
     default:
         break;
     
