@@ -64,7 +64,7 @@ void isOnSnake(Point newHead){ // self collision check
     }
 
 void isOnWall(Point newHead){
-    if(newHead.x < 0 || newHead.x >= BoardWidth || newHead.y < 0 || newHead.y >= BoardHeight){
+    if(newHead.x <= 0 || newHead.x >= BoardWidth || newHead.y <= 0 || newHead.y >= BoardHeight){
         running = false;
         mvprintw(BoardHeight + 1, 0, "Game Over! You hit the wall.");
         refresh();
