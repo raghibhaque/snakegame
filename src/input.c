@@ -8,15 +8,19 @@ void handle_input(){
     switch (ch)
     {
     case 'w':
+    case KEY_UP:
         next_dir = DIR_UP;
         break;
     case 's':
+    case KEY_DOWN:
         next_dir = DIR_DOWN;
         break;
     case 'a':
+    case KEY_LEFT:
         next_dir = DIR_LEFT;
         break;
-    case 'd': 
+    case 'd':
+    case KEY_RIGHT:
         next_dir = DIR_RIGHT;
         break;
 
