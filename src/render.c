@@ -8,7 +8,9 @@ void draw(){
 
     drawBoard();
 
-    mvaddch(food.y, food.x, 'F');
+    for(int i = 0; i < food_count; i++){
+        mvaddch(foodArray[i].y, foodArray[i].x, 'F');
+    }
 
     for(int i = 0; i < snake_len; i++){
         mvaddch(snake[i].y, snake[i].x, 'O');

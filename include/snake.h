@@ -23,17 +23,16 @@ typedef enum {
 extern Point snake[MAX_SNAKE_SIZE];
 extern int   snake_len;
 extern Direction dir, next_dir;
-extern Point food;
 extern int   score, high_score;
 extern bool  running;
 extern Point newHead;
 extern int *ptr;
-extern int foodArray[MAX_FOOD][6];
+extern Point foodArray[MAX_FOOD];
+extern int   food_count;
 
 
 void init_game();
 void end_game();
-void placeFood(int x, int y);
 void handle_input();
 void update();
 void draw();

@@ -9,15 +9,12 @@ int points = 0;
 int *ptr = &points;
 
 
-void placeFood(int x, int y){
-    food.x = x;
-    food.y = y;
-}
-
 void placeMultipleFood(int count){
+    if(count > MAX_FOOD) count = MAX_FOOD;
+    food_count = count;
     for(int i = 0; i < count; i++){
-        food.x = rand() % BoardWidth;
-        food.y = rand() % BoardHeight;
+        foodArray[i].x = 1 + rand() % (BoardWidth - 2);
+        foodArray[i].y = 1 + rand() % (BoardHeight - 2);
     }
 }
 
@@ -46,11 +43,14 @@ void update(){
     }
     snake[0] = newHead;
 
-    if(snake[0].x == food.x && snake[0].y == food.y){
-        addScore(ptr);
-        snake_len++;
-        food.x = rand() % BoardWidth;
-        food.y = rand() % BoardHeight;
+    for(int i = 0; i < food_count; i++){
+        if(snake[0].x == foodArray[i].x && snake[0].y == foodArray[i].y){
+            addScore(ptr);
+            snake_len++;
+            foodArray[i].x = 1 + rand() % (BoardWidth - 2);
+            foodArray[i].y = 1 + rand() % (BoardHeight - 2);
+            break;
+        }
     }
 }
 

@@ -7,7 +7,8 @@
 Point snake[MAX_SNAKE_SIZE];
 int   snake_len;
 Direction dir, next_dir;
-Point food;
+Point foodArray[MAX_FOOD];
+int   food_count;
 int   score, high_score;
 bool  running;
 extern int *ptr;
@@ -78,14 +79,7 @@ int main(void){
     getch();   
 
 
-    int xFood = rand() % BoardWidth;
-    int yFood = rand() % BoardHeight;
-    food.x = xFood;
-    food.y = yFood;
-    int xFood2 = rand() % BoardWidth;
-    int yFood2 = rand() % BoardHeight;
-
-    placeFood(xFood, yFood);
+    placeMultipleFood(1);
 
 
 
@@ -97,13 +91,6 @@ int main(void){
         draw();
         usleep(150000); 
     }
-
-    if(score > high_score){
-        high_score = score;
-        saveHighScore();
-        placeFood(xFood2, yFood2);
-    }
-
 
     saveHighScore();
     end_game();
