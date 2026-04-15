@@ -90,6 +90,10 @@ int main(void){
         isOnSnake(newHead);
         isOnWall(newHead);
         draw();
+        for(int i = 0 ; i < usleep(150000) / 10000; i+=10000){
+            int speedAmnt = 100;
+            usleep(10000)-=speedAmnt; 
+        } // very wip speed adjustment, will be replaced with a more robust system in the future
         usleep(150000); 
     }
 
