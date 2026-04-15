@@ -55,6 +55,7 @@ void init_game(){
 }
 
 void end_game(){
+    gameOverScreen();
     endwin();
 }
 

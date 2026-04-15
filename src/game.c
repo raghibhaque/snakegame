@@ -57,6 +57,7 @@ void update(){
 void isOnSnake(Point newHead){ // self collision check
         for(int i = 1; i < snake_len; i++){
             if(snake[i].x == newHead.x && snake[i].y == newHead.y){
+                mvprintw(BoardHeight + 1, 0, "Game Over! You hit yourself.");
                 running = false;
                 return;
             }
