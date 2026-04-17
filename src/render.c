@@ -28,6 +28,7 @@ void drawBoard(){
         mvaddch(y, 0, '#');
         mvaddch(y, BoardWidth - 1, '#');
     }
+    mvprintw(BoardHeight, 0, "Score: %d  High Score: %d", score, high_score);
 }
 
 void gameOverScreen(){
