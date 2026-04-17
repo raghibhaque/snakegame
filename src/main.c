@@ -11,17 +11,9 @@ Point foodArray[MAX_FOOD];
 int   food_count;
 int   score, high_score;
 bool  running;
-extern int *ptr;
 extern Point newHead;
 
 
-void addScore(int *ptr){
-    score += *ptr;
-    if(score > high_score){
-        high_score = score;
-    }
-
-}
 
 void resetScore(){
     score = 0;
@@ -73,6 +65,7 @@ int main(void){
         snake[i].x = 5 - i;
         snake[i].y = 5;
     }
+
 
     loadHighScore();
 

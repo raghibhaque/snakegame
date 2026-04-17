@@ -26,7 +26,6 @@ extern Direction dir, next_dir;
 extern int   score, high_score;
 extern bool  running;
 extern Point newHead;
-extern int *ptr;
 extern Point foodArray[MAX_FOOD];
 extern int   food_count;
 
@@ -36,7 +35,6 @@ void end_game();
 void handle_input();
 void update();
 void draw();
-void addScore(int *ptr);
 void resetScore();
 void saveHighScore();
 void loadHighScore();

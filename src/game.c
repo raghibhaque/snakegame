@@ -5,8 +5,6 @@
 #include "snake.h"
 
 Point newHead;
-int points = 0;
-int *ptr = &points;
 
 
 void placeMultipleFood(int count){
@@ -45,7 +43,8 @@ void update(){
 
     for(int i = 0; i < food_count; i++){
         if(snake[0].x == foodArray[i].x && snake[0].y == foodArray[i].y){
-            addScore(ptr);
+            score += 5;
+            if(score > high_score) high_score = score;
             snake_len++;
             foodArray[i].x = 1 + rand() % (BoardWidth - 2);
             foodArray[i].y = 1 + rand() % (BoardHeight - 2);
