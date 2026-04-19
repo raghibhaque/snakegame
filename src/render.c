@@ -29,7 +29,7 @@ void drawBoard(){
         mvaddch(y, BoardWidth - 1, '#');
     }
     mvprintw(BoardHeight, 0, "Score: %d  High Score: %d", score, high_score);
-    mvprintw(BoardHeight, 15, "Length of snake: %d", snake_len);
+    mvprintw(BoardHeight, 45, "Length of snake: %d", snake_len);
 }
 
 void gameOverScreen(){
