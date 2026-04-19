@@ -29,12 +29,14 @@ void drawBoard(){
         mvaddch(y, BoardWidth - 1, '#');
     }
     mvprintw(BoardHeight, 0, "Score: %d  High Score: %d", score, high_score);
+    mvprintw(BoardHeight, 15, "Length of snake: %d", snake_len);
 }
 
 void gameOverScreen(){
     nodelay(stdscr, FALSE);
     clear();
     mvprintw(0, 0, "Game Over! Your score: %d. Press any key to exit.", score);
+    mvprintw(2, 0, "Length of snake: %d", snake_len);
     refresh();
     getch();
     nodelay(stdscr, TRUE);
